@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlowSpace Warehouse Launch Portal</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="landing">
+    <header class="site-header">
+      <nav class="nav" aria-label="Navigasi utama">
+        <a class="brand" href="index.html" aria-label="FlowSpace Warehouse">
+          <span class="brand-mark">FS</span>
+          <span>
+            <strong>FlowSpace</strong>
+            <small>Warehouse</small>
+          </span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navLinks">Menu</button>
+        <div class="nav-links" id="navLinks">
+          <a href="#solution">Solusi</a>
+          <a href="#workflow">Alur</a>
+          <a href="#roles">Role Demo</a>
+        </div>
+        <a class="nav-cta" href="customer.html">Masuk Customer</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero section" id="home">
+        <div class="hero-copy">
+          <p class="eyebrow">Public launch preview</p>
+          <h1>FlowSpace Warehouse</h1>
+          <p class="hero-text">
+            Satu portal untuk menyewa kapasitas gudang, memantau stok, mengatur outbound,
+            dan membaca invoice tanpa alur operasional yang tercecer.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="customer.html">Buka Customer Portal</a>
+            <a class="button button-secondary" href="#roles">Pilih Role Demo</a>
+          </div>
+          <div class="trust-row" aria-label="Keunggulan FlowSpace">
+            <span>Realtime stock visibility</span>
+            <span>Role-based workflow</span>
+            <span>Invoice-ready operation</span>
+          </div>
+          <dl class="hero-metrics" aria-label="Indikator proyek">
+            <div><dt>Status layanan</dt><dd>Live</dd></div>
+            <div><dt>Portal operasional</dt><dd>5 role</dd></div>
+            <div><dt>Akurasi stok</dt><dd>99.9%</dd></div>
+          </dl>
+        </div>
+        <aside class="launch-panel" aria-label="Pilih role FlowSpace">
+          <div class="panel-top">
+            <span>Coba FlowSpace</span>
+            <strong>Demo langsung</strong>
+          </div>
+          <a class="launch-card launch-card-primary" href="customer.html">
+            <span class="avatar">CU</span>
+            <span>
+              <b>Mulai sebagai Customer</b>
+              <small>Reservasi kapasitas, daftarkan SKU, pantau stok, dan cek invoice.</small>
+            </span>
+            <i>Masuk</i>
+          </a>
+          <div class="launch-grid">
+            <a class="launch-card" href="admin.html"><span class="avatar">AD</span><span><b>Admin</b><small>Setup gudang, approval, dan kurir.</small></span></a>
+            <a class="launch-card" href="staff.html"><span class="avatar">ST</span><span><b>Staff</b><small>Scan inbound, putaway, cycle count.</small></span></a>
+            <a class="launch-card" href="courier.html"><span class="avatar">CO</span><span><b>Kurir</b><small>Update status tugas pengiriman.</small></span></a>
+            <a class="launch-card" href="finance.html"><span class="avatar">FI</span><span><b>Finance</b><small>Hitung billing dan payment status.</small></span></a>
+          </div>
+          <div class="launch-summary" aria-label="Ringkasan data prototype">
+            <div><span>Kapasitas terpakai</span><b id="heroCapacity">0%</b></div>
+            <div><span>SKU aktif</span><b id="heroSku">0</b></div>
+            <div><span>Tugas diproses</span><b id="heroTasks">0</b></div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section" id="solution">
+        <div class="section-heading">
+          <h2>Masalah yang diselesaikan</h2>
+          <p>
+            FlowSpace menjawab masalah stok manual, kapasitas gudang sulit diprediksi,
+            inbound/outbound tidak rapi, dan billing yang rawan salah.
+          </p>
+        </div>
+        <div class="pain-grid">
+          <article>
+            <span class="tag">UKM</span>
+            <h3>Penyimpanan tidak terstruktur</h3>
+            <p>Barang tersebar tanpa data SKU, lokasi rak, dan riwayat movement.</p>
+          </article>
+          <article>
+            <span class="tag amber">Operasional</span>
+            <h3>Selisih stok</h3>
+            <p>Human error saat inbound/outbound membuat stok fisik dan digital berbeda.</p>
+          </article>
+          <article>
+            <span class="tag blue">Enterprise</span>
+            <h3>Kontrol lintas lokasi</h3>
+            <p>Klien butuh monitoring stok, laporan, dan export data yang konsisten.</p>
+          </article>
+          <article>
+            <span class="tag red">Finance</span>
+            <h3>Billing tidak akurat</h3>
+            <p>Biaya volume, durasi, dan handling perlu dihitung otomatis.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section journey-section" id="workflow">
+        <div class="section-heading">
+          <p class="eyebrow">Alur</p>
+          <h2>Operasional gudang dalam satu jalur</h2>
+          <p>
+            Customer, admin, staff, kurir, dan finance bergerak dari data yang sama,
+            jadi setiap tahap punya status yang jelas.
+          </p>
+        </div>
+        <ol class="flow-steps">
+          <li><b>Booking ruang</b><span>Customer memilih kapasitas gudang sesuai kebutuhan barang.</span></li>
+          <li><b>Validasi admin</b><span>Admin mengecek ketersediaan zona, rak, dan approval reservasi.</span></li>
+          <li><b>Barang masuk</b><span>Staff scan SKU, verifikasi kuantitas, lalu assign lokasi rak.</span></li>
+          <li><b>Stok hidup</b><span>Customer melihat stok, status barang, dan riwayat movement.</span></li>
+          <li><b>Barang keluar</b><span>Outbound diproses, kurir menerima tugas, lalu update status pengiriman.</span></li>
+          <li><b>Invoice siap</b><span>Finance menghitung biaya dan memperbarui status pembayaran.</span></li>
+        </ol>
+      </section>
+
+      <section class="section" id="roles">
+        <div class="section-heading">
+          <p class="eyebrow">Demo access</p>
+          <h2>Pilih portal sesuai role</h2>
+          <p>
+            Halaman ini dipakai untuk memperlihatkan pengalaman customer dan role internal.
+            Data tetap tersimpan lokal di browser melalui localStorage.
+          </p>
+        </div>
+        <div class="role-card-grid">
+          <a class="role-card" href="customer.html">
+            <span class="avatar">CU</span>
+            <h3>Customer Portal</h3>
+            <p>Reservasi, SKU registration, stock monitoring, outbound, billing, notification, dan export.</p>
+          </a>
+          <a class="role-card" href="admin.html">
+            <span class="avatar">AD</span>
+            <h3>Admin Ops Portal</h3>
+            <p>Warehouse setup, reservation approval, outbound approval, courier assignment, dan risk oversight.</p>
+          </a>
+          <a class="role-card" href="staff.html">
+            <span class="avatar">ST</span>
+            <h3>Warehouse Staff Portal</h3>
+            <p>Inbound scan, putaway, cycle count, stock correction, dan discrepancy review.</p>
+          </a>
+          <a class="role-card" href="finance.html">
+            <span class="avatar">FI</span>
+            <h3>Finance Portal</h3>
+            <p>Billing calculation, invoice status, payment tracking, dan finance reporting.</p>
+          </a>
+          <a class="role-card" href="courier.html">
+            <span class="avatar">CO</span>
+            <h3>Courier Portal</h3>
+            <p>Tugas pengiriman dari admin dengan update barang diambil, dalam perjalanan, dan selesai.</p>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <footer class="site-footer">
+      <a class="up-button" href="#home" aria-label="Kembali ke atas">↑</a>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
