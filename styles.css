@@ -1314,6 +1314,18 @@ th {
     width: 100%;
   }
 
+  .portal-layout {
+    width: 100%;
+    min-height: calc(100vh - 128px);
+    min-height: calc(100dvh - 128px);
+    display: grid;
+    grid-template-columns: 88px minmax(0, 1fr);
+    align-items: start;
+    border-left: 0;
+    border-right: 0;
+    background: var(--bg);
+  }
+
   .hero-panel,
   .launch-panel,
   .app-main,
@@ -1321,6 +1333,46 @@ th {
   .card,
   .form-card {
     padding: 14px;
+  }
+
+  .portal-layout .app-sidebar {
+    position: sticky;
+    top: 128px;
+    z-index: 12;
+    min-height: calc(100vh - 128px);
+    min-height: calc(100dvh - 128px);
+    max-height: calc(100vh - 128px);
+    max-height: calc(100dvh - 128px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    display: grid;
+    align-content: start;
+    gap: 8px;
+    border-right: 1px solid var(--line);
+    border-bottom: 0;
+    background: rgba(251, 252, 251, 0.96);
+    backdrop-filter: blur(14px);
+    padding: 10px 8px;
+  }
+
+  .portal-layout .app-main {
+    min-width: 0;
+    padding: 14px 12px 32px;
+    background: var(--surface);
+  }
+
+  .app-sidebar .profile-card {
+    justify-content: center;
+    padding: 8px;
+  }
+
+  .app-sidebar .profile-card .avatar {
+    width: 48px;
+    height: 48px;
+  }
+
+  .app-sidebar .profile-card div {
+    display: none;
   }
 
   .launch-grid,
@@ -1340,6 +1392,52 @@ th {
 
   .app-menu {
     grid-template-columns: 1fr;
+    gap: 8px;
+    margin: 0;
+  }
+
+  .menu-item {
+    width: 100%;
+    min-height: 62px;
+    display: grid;
+    place-items: center;
+    align-content: center;
+    gap: 3px;
+    border-radius: 8px;
+    padding: 6px 4px;
+    text-align: center;
+  }
+
+  .menu-item .menu-pb {
+    font-size: 0.62rem;
+    line-height: 1;
+  }
+
+  .menu-item span:last-child {
+    width: 100%;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    color: var(--text);
+    font-size: 0.66rem;
+    font-weight: 800;
+    line-height: 1.05;
+    overflow-wrap: normal;
+  }
+
+  .menu-item.active {
+    box-shadow: inset 4px 0 0 var(--green);
+    transform: translateX(2px);
+  }
+
+  .app-sidebar .button.full-width {
+    min-height: 48px;
+    width: 100%;
+    padding: 0 4px;
+    font-size: 0.68rem;
+    line-height: 1.05;
+    text-align: center;
   }
 
   .zone-row {

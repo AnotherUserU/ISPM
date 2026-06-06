@@ -362,7 +362,7 @@ function portalShell(role) {
         </div>
         <nav class="app-menu" id="portalMenu" aria-label="Menu ${meta.title}">
           ${meta.menu.map((view, index) => `
-            <button class="menu-item ${index === 0 ? "active" : ""}" type="button" data-view="${view}">
+            <button class="menu-item ${index === 0 ? "active" : ""}" type="button" data-view="${view}" title="${viewMeta[view][0]}" aria-label="${viewMeta[view][0]}">
               <span class="menu-pb">${getViewCode(view, role)}</span>
               <span>${viewMeta[view][0]}</span>
             </button>
