@@ -353,7 +353,7 @@ function portalShell(role) {
     </header>
     <main class="portal-layout">
       <aside class="app-sidebar">
-        <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-expanded="true" aria-controls="portalMenu">‹</button>
+        <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-expanded="true" aria-controls="portalMenu">›</button>
         <div class="profile-card">
           <span class="avatar">${meta.avatar}</span>
           <div>
@@ -916,7 +916,7 @@ function attachPortalEvents(role) {
     sidebarToggle.addEventListener("click", () => {
       const collapsed = portalLayout.classList.toggle("sidebar-collapsed");
       sidebarToggle.setAttribute("aria-expanded", String(!collapsed));
-      sidebarToggle.textContent = collapsed ? "›" : "‹";
+      sidebarToggle.textContent = collapsed ? "‹" : "›";
     });
   }
   qsa(".menu-item").forEach((button) => {
