@@ -434,7 +434,7 @@ function renderProfile() {
         <button class="button button-primary" type="submit">Simpan Profil</button>
       </form>
     </section>
-    <section class="card">
+    <section class="card verification-card">
       <h3>Verification Status</h3>
       <dl class="compact-dl">
         <div><dt>Business</dt><dd>${state.profile.business}</dd></div>
