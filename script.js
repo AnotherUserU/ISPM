@@ -1,21 +1,3 @@
-const backlog = [
-  { id: "PB01", epic: "Customer Account", desc: "Akun dan profil bisnis customer", roles: ["Customer", "Admin Ops"], prototype: "Profile form + admin-visible user/customer data" },
-  { id: "PB02", epic: "Access Control", desc: "Role-based portal per pengguna", roles: ["Customer", "Admin Ops", "Staff", "Finance", "Courier"], prototype: "Setiap role punya page dan menu sendiri" },
-  { id: "PB03", epic: "Warehouse Setup", desc: "Zona, rak, kapasitas, tipe penyimpanan", roles: ["Admin Ops"], prototype: "Warehouse setup form + capacity map" },
-  { id: "PB04", epic: "Storage Reservation", desc: "Reservasi kapasitas sebelum inbound", roles: ["Customer", "Admin Ops"], prototype: "Customer submit reservation + admin approval" },
-  { id: "PB05", epic: "Product Registration", desc: "SKU, dimensi, berat, QR/RFID label", roles: ["Customer"], prototype: "Product form + generated label preview" },
-  { id: "PB06", epic: "Inbound Verification", desc: "Scan label, validasi qty, assign rak", roles: ["Warehouse Staff"], prototype: "Inbound verification form + audit movement" },
-  { id: "PB07", epic: "Stock Monitoring", desc: "Stok, lokasi, status, riwayat movement", roles: ["Customer", "Admin Ops"], prototype: "Customer inventory table + admin movement visibility" },
-  { id: "PB08", epic: "Pickup Request", desc: "Request pickup dari customer", roles: ["Customer"], prototype: "Customer pickup request form" },
-  { id: "PB09", epic: "Courier Assignment", desc: "Assignment dan status kurir", roles: ["Admin Ops", "Courier"], prototype: "Admin assignment + courier status flow" },
-  { id: "PB10", epic: "Outbound Request", desc: "Validasi stok sebelum barang keluar", roles: ["Customer", "Admin Ops"], prototype: "Customer outbound request + admin status update" },
-  { id: "PB11", epic: "Billing Calculation", desc: "Volume, durasi, handling", roles: ["Finance"], prototype: "Billing calculator generates invoice total" },
-  { id: "PB12", epic: "Invoice & Payment", desc: "Invoice dan status pembayaran", roles: ["Customer", "Finance"], prototype: "Customer invoice view + finance Paid/Unpaid update" },
-  { id: "PB13", epic: "Threshold Notification", desc: "Alert stok rendah dan suhu abnormal", roles: ["Customer", "Admin Ops"], prototype: "Notification center + generated alerts" },
-  { id: "PB14", epic: "ERP/API Integration", desc: "Preview export API/CSV", roles: ["Customer"], prototype: "Customer API/CSV export preview" },
-  { id: "PB15", epic: "Operational Reporting", desc: "Okupansi, movement, revenue, SLA", roles: ["Admin Ops", "Finance"], prototype: "Operational report cards without API panel" }
-];
-
 const roleMeta = {
   customer: {
     avatar: "CU",
@@ -51,48 +33,25 @@ const roleMeta = {
 
 const viewMeta = {
   overview: ["Overview", "Ringkasan pekerjaan dan indikator role."],
-  profile: ["Business Profile", "PB01: profil bisnis customer untuk verifikasi akun."],
-  reservation: ["Storage Reservation", "PB04: customer memesan kapasitas penyimpanan."],
-  products: ["Product / SKU Registration", "PB05: customer mendaftarkan produk dan label."],
-  inventory: ["Inventory Monitoring", "PB07: stok, lokasi, status, dan volume."],
-  outbound: ["Outbound Request", "PB10: customer membuat request barang keluar."],
+  profile: ["Business Profile", "Profil bisnis customer untuk verifikasi akun."],
+  reservation: ["Storage Reservation", "Customer memesan kapasitas penyimpanan."],
+  products: ["Product / SKU Registration", "Customer mendaftarkan produk dan label."],
+  inventory: ["Inventory Monitoring", "Stok, lokasi, status, dan volume."],
+  outbound: ["Outbound Request", "Customer membuat request barang keluar."],
   billing: ["Billing & Invoice", "Tagihan dan status invoice sesuai role."],
-  notifications: ["Notifications", "PB13: threshold alert dan status penting."],
-  exports: ["API/CSV Export", "PB14: customer mengekspor data stok, transaksi, dan invoice."],
-  warehouse: ["Warehouse Setup", "PB03: zona, rak, kapasitas, dan tipe storage."],
-  reservationApproval: ["Reservation Approval", "PB04 admin approval queue."],
-  outboundAdmin: ["Outbound Management", "PB10 admin proses request outbound."],
-  courierAssign: ["Courier Assignment", "PB09 admin menugaskan kurir."],
-  reports: ["Operational Reports", "PB15: laporan okupansi, movement, revenue, dan SLA."],
+  notifications: ["Notifications", "Threshold alert dan status penting."],
+  exports: ["API/CSV Export", "Customer mengekspor data stok, transaksi, dan invoice."],
+  warehouse: ["Warehouse Setup", "Zona, rak, kapasitas, dan tipe storage."],
+  reservationApproval: ["Reservation Approval", "Admin approval queue."],
+  outboundAdmin: ["Outbound Management", "Admin proses request outbound."],
+  courierAssign: ["Courier Assignment", "Admin menugaskan kurir."],
+  reports: ["Operational Reports", "Laporan okupansi, movement, revenue, dan SLA."],
   risk: ["Risk Control", "Risk plan R03: selisih stok fisik vs digital."],
-  inbound: ["Inbound Verification", "PB06 staff scan dan validasi barang masuk."],
+  inbound: ["Inbound Verification", "Staff scan dan validasi barang masuk."],
   cycleCount: ["Cycle Count", "Kontrol stok berkala per zona."],
-  invoiceStatus: ["Invoice Status", "PB12 update status Paid/Unpaid."],
-  pickup: ["Pickup Request", "PB08 pickup request dari customer."],
-  courierTasks: ["Assigned Tasks", "PB09: kurir melihat tugas dari admin dan mengupdate status."]
-};
-
-const viewCodes = {
-  overview: "Dashboard",
-  profile: "PB01",
-  reservation: "PB04",
-  products: "PB05",
-  inventory: "PB07",
-  outbound: "PB10",
-  billing: "Billing",
-  notifications: "PB13",
-  exports: "PB14",
-  warehouse: "PB03",
-  reservationApproval: "PB04",
-  outboundAdmin: "PB10",
-  courierAssign: "PB09",
-  reports: "PB15",
-  risk: "Risk Plan",
-  inbound: "PB06",
-  cycleCount: "PB06/R03",
-  invoiceStatus: "PB12",
-  pickup: "PB08",
-  courierTasks: "PB09"
+  invoiceStatus: ["Invoice Status", "Update status Paid/Unpaid."],
+  pickup: ["Pickup Request", "Pickup request dari customer."],
+  courierTasks: ["Assigned Tasks", "Kurir melihat tugas dari admin dan mengupdate status."]
 };
 
 const defaultState = {
@@ -262,32 +221,13 @@ function roleOptions() {
     .join("");
 }
 
-function getViewCode(view, role) {
-  if (view === "billing" && role === "customer") return "PB12";
-  if (view === "billing" && role === "finance") return "PB11";
-  return viewCodes[view];
-}
-
 function getViewDescription(view, role) {
-  if (view === "billing" && role === "customer") return "PB12: customer melihat invoice dan status pembayaran.";
-  if (view === "billing" && role === "finance") return "PB11: finance menghitung biaya penyimpanan dan handling.";
+  if (view === "billing" && role === "customer") return "Customer melihat invoice dan status pembayaran.";
+  if (view === "billing" && role === "finance") return "Finance menghitung biaya penyimpanan dan handling.";
   return viewMeta[view][1];
 }
 
 function renderLanding() {
-  const grid = byId("backlogGrid");
-  if (grid) {
-    grid.innerHTML = backlog
-      .map((item) => `
-        <article class="backlog-item">
-          <strong><span class="checkmark">✓</span> ${item.id} ${item.epic}</strong>
-          <span>${item.desc}</span>
-          <small><b>Role:</b> ${item.roles.join(", ")}</small>
-          <small><b>Prototype:</b> ${item.prototype}</small>
-        </article>
-      `)
-      .join("");
-  }
   const total = totalCapacity();
   if (byId("heroCapacity")) byId("heroCapacity").textContent = `${total.percent}%`;
   if (byId("heroSku")) byId("heroSku").textContent = state.products.length;
@@ -364,7 +304,6 @@ function portalShell(role) {
         <nav class="app-menu" id="portalMenu" aria-label="Menu ${meta.title}">
           ${meta.menu.map((view, index) => `
             <button class="menu-item ${index === 0 ? "active" : ""}" type="button" data-view="${view}" title="${viewMeta[view][0]}" aria-label="${viewMeta[view][0]}">
-              <span class="menu-pb">${getViewCode(view, role)}</span>
               <span>${viewMeta[view][0]}</span>
             </button>
           `).join("")}
@@ -375,7 +314,6 @@ function portalShell(role) {
       <section class="app-main">
         <div class="app-topbar">
           <div>
-            <p class="eyebrow" id="viewCode">${getViewCode(meta.menu[0], role)}</p>
             <h1 id="viewTitle">${viewMeta[meta.menu[0]][0]}</h1>
             <p class="view-subtitle" id="viewSubtitle">${getViewDescription(meta.menu[0], role)}</p>
           </div>
@@ -424,7 +362,7 @@ function renderOverview(role) {
 function renderProfile() {
   return `
     <section class="form-card">
-      <h3>PB01 Customer Account</h3>
+      <h3>Customer Account</h3>
       <p class="form-help">Prototype profil bisnis untuk verifikasi customer sebelum barang diterima.</p>
       <form id="profileForm" class="form-grid">
         <label>Nama bisnis<input name="business" required value="${state.profile.business}" /></label>
@@ -448,7 +386,7 @@ function renderProfile() {
 function renderReservation() {
   return `
     <section class="form-card">
-      <h3>PB04 Storage Reservation</h3>
+      <h3>Storage Reservation</h3>
       <p class="form-help">Customer memesan kapasitas agar gudang tidak overbooking.</p>
       <form id="reservationForm" class="form-grid">
         <label>Nama bisnis<input name="business" required value="Nusantara Digital Store" /></label>
@@ -465,7 +403,7 @@ function renderReservation() {
 function renderProducts() {
   return `
     <section class="form-card">
-      <h3>PB05 Product Registration</h3>
+      <h3>Product Registration</h3>
       <p class="form-help">Daftarkan produk agar SKU dan label bisa dipakai saat inbound.</p>
       <form id="productForm" class="form-grid">
         <label>Nama produk<input name="name" required placeholder="Wireless Keyboard" /></label>
@@ -499,7 +437,7 @@ function renderInventory() {
   return `
     <section class="card">
       <div class="card-heading-row">
-        <h3>PB07 Stock Monitoring</h3>
+        <h3>Stock Monitoring</h3>
         <span class="tag blue">${rows.length} item</span>
       </div>
       <div class="table-wrap">
@@ -524,7 +462,7 @@ function renderInventory() {
 function renderOutbound() {
   return `
     <section class="form-card">
-      <h3>PB10 Outbound Request</h3>
+      <h3>Outbound Request</h3>
       <p class="form-help">Customer memilih SKU dan sistem memvalidasi stok tersedia.</p>
       <form id="outboundForm" class="form-grid">
         <label>Pilih SKU<select name="sku">${productOptions()}</select></label>
@@ -539,13 +477,13 @@ function renderOutbound() {
 }
 
 function renderCustomerBilling() {
-  return invoiceTable("PB12 Invoice & Payment Status", false);
+  return invoiceTable("Invoice & Payment Status", false);
 }
 
 function renderNotifications() {
   return `
     <section class="card">
-      <h3>PB13 Threshold Notifications</h3>
+      <h3>Threshold Notifications</h3>
       <ul class="notification-list">
         ${state.notifications.map((item) => `<li>${item}</li>`).join("")}
       </ul>
@@ -556,7 +494,7 @@ function renderNotifications() {
 function renderWarehouse() {
   return `
     <section class="form-card">
-      <h3>PB03 Warehouse Setup</h3>
+      <h3>Warehouse Setup</h3>
       <p class="form-help">Admin mendefinisikan zona, kapasitas, dan tipe penyimpanan.</p>
       <form id="zoneForm" class="form-grid">
         <label>Nama zona<input name="name" required placeholder="Zone E Oversize" /></label>
@@ -586,7 +524,7 @@ function zoneRow(zone) {
 }
 
 function renderReservationApproval() {
-  return reservationTable("PB04 Reservation Approval", true);
+  return reservationTable("Reservation Approval", true);
 }
 
 function reservationTable(title, withActions = false) {
@@ -613,7 +551,7 @@ function reservationTable(title, withActions = false) {
 }
 
 function renderOutboundAdmin() {
-  return outboundList("PB10 Outbound Management", true);
+  return outboundList("Outbound Management", true);
 }
 
 function outboundList(title, withActions = false) {
@@ -637,7 +575,7 @@ function outboundList(title, withActions = false) {
 function renderCourierAssign() {
   return `
     <section class="form-card">
-      <h3>PB09 Courier Assignment</h3>
+      <h3>Courier Assignment</h3>
       <form id="courierAssignForm" class="form-grid">
         <label>Outbound<select name="outboundId">${state.outbound.map((o) => `<option value="${o.id}">${o.id} - ${o.sku}</option>`).join("")}</select></label>
         <label>Courier<select name="courier"><option>Raka</option><option>Daniel</option><option>Fajar</option></select></label>
@@ -654,7 +592,7 @@ function renderReports() {
   const revenue = state.invoices.reduce((sum, invoice) => sum + Number(invoice.total), 0);
   return `
     <section class="card">
-      <h3>PB15 Operational Reporting</h3>
+      <h3>Operational Reporting</h3>
       <dl class="compact-dl">
         <div><dt>Occupancy</dt><dd>${total.percent}%</dd></div>
         <div><dt>Total stock unit</dt><dd>${units}</dd></div>
@@ -668,7 +606,7 @@ function renderReports() {
 function renderExports() {
   return `
     <section class="card">
-      <h3>PB14 ERP/API Integration</h3>
+      <h3>ERP/API Integration</h3>
       <p class="form-help">API/CSV preview hanya ditampilkan di Customer sesuai scope terbaru.</p>
       <pre class="code-block">${JSON.stringify({ stock: state.products, outbound: state.outbound, invoices: state.invoices }, null, 2)}</pre>
     </section>
@@ -701,7 +639,7 @@ function renderRisk() {
 function renderInbound() {
   return `
     <section class="form-card">
-      <h3>PB06 Inbound Verification</h3>
+      <h3>Inbound Verification</h3>
       <p class="form-help">Staff mencocokkan qty aktual, lalu menentukan zona/rak.</p>
       <form id="inboundForm" class="form-grid">
         <label>Pilih SKU<select name="sku">${productOptions()}</select></label>
@@ -758,7 +696,7 @@ function renderCycleCount() {
 function renderFinanceBilling() {
   return `
     <section class="form-card">
-      <h3>PB11 Billing Calculation</h3>
+      <h3>Billing Calculation</h3>
       <form id="billingForm" class="form-grid">
         <label>Customer<input name="customer" required value="Nusantara Digital Store" /></label>
         <label>Storage days<input name="days" type="number" min="1" required value="14" /></label>
@@ -772,7 +710,7 @@ function renderFinanceBilling() {
 }
 
 function renderInvoiceStatus() {
-  return invoiceTable("PB12 Invoice Payment Status", true);
+  return invoiceTable("Invoice Payment Status", true);
 }
 
 function invoiceTable(title, withActions) {
@@ -800,7 +738,7 @@ function invoiceTable(title, withActions) {
 function renderPickup() {
   return `
     <section class="form-card">
-      <h3>PB08 Pickup Request</h3>
+      <h3>Pickup Request</h3>
       <form id="pickupForm" class="form-grid">
         <label>Business<input name="business" required value="Nusantara Digital Store" /></label>
         <label>Alamat pickup<input name="address" required value="Jl. Asia Afrika 8" /></label>
@@ -853,7 +791,7 @@ function renderCourierTasks() {
   const assigned = state.outbound.filter((item) => item.courier && item.courier !== "-");
   return `
     <section class="card">
-      <h3>PB09 Assigned Courier Tasks</h3>
+      <h3>Assigned Courier Tasks</h3>
       <p class="form-help">Hanya tugas outbound yang sudah di-assign oleh Admin Ops yang tampil di sini.</p>
       <ul class="task-list">
         ${assigned.map((item) => {
@@ -898,7 +836,6 @@ function renderView(view, role) {
   };
   activeView = view;
   byId("viewTitle").textContent = viewMeta[view][0];
-  byId("viewCode").textContent = getViewCode(view, role);
   byId("viewSubtitle").textContent = getViewDescription(view, role);
   root.innerHTML = renderers[view]();
   qsa(".menu-item").forEach((item) => item.classList.toggle("active", item.dataset.view === view));

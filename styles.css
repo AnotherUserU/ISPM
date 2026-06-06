@@ -542,54 +542,6 @@ dd {
   color: var(--red);
 }
 
-.feature-band {
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-}
-
-.backlog-grid {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 10px;
-}
-
-.backlog-item {
-  min-height: 160px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--surface);
-  padding: 12px;
-}
-
-.backlog-item strong {
-  display: block;
-  margin-bottom: 6px;
-}
-
-.backlog-item span {
-  color: var(--muted);
-  font-size: 0.82rem;
-}
-
-.backlog-item small {
-  display: block;
-  margin-top: 8px;
-  color: var(--muted);
-  font-size: 0.78rem;
-}
-
-.checkmark {
-  display: inline-grid;
-  width: 22px;
-  height: 22px;
-  margin-right: 4px;
-  place-items: center;
-  border-radius: 999px;
-  background: var(--green-soft);
-  color: var(--green);
-  font-weight: 900;
-}
-
 .zone-map,
 .activity-card {
   border: 1px solid var(--line);
@@ -885,13 +837,6 @@ dd {
   display: grid;
   align-content: center;
   gap: 2px;
-}
-
-.menu-pb {
-  color: var(--green);
-  font-size: 0.72rem;
-  font-weight: 900;
-  text-transform: uppercase;
 }
 
 .view-subtitle {
@@ -1270,7 +1215,6 @@ th {
   }
 
   .pain-grid,
-  .backlog-grid,
   .flow-steps,
   .kpi-grid,
   .role-card-grid {
@@ -1299,7 +1243,6 @@ th {
 
   .hero-metrics,
   .pain-grid,
-  .backlog-grid,
   .flow-steps,
   .kpi-grid,
   .form-grid,
@@ -1332,7 +1275,7 @@ th {
   }
 
   .portal-layout.sidebar-collapsed {
-    grid-template-columns: minmax(0, 1fr) 48px;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .hero-panel,
@@ -1405,10 +1348,24 @@ th {
   }
 
   .portal-layout.sidebar-collapsed .app-sidebar {
+    position: fixed;
+    top: 136px;
+    right: 8px;
+    width: 44px;
+    z-index: 25;
     overflow: visible;
     min-height: auto;
     max-height: none;
-    padding: 10px 5px;
+    border: 0;
+    background: transparent;
+    backdrop-filter: none;
+    padding: 0;
+  }
+
+  .portal-layout.sidebar-collapsed .sidebar-toggle {
+    width: 44px;
+    min-height: 44px;
+    box-shadow: 0 10px 26px rgba(20, 34, 29, 0.18);
   }
 
   .launch-grid,
@@ -1442,11 +1399,6 @@ th {
     border-radius: 8px;
     padding: 6px 4px;
     text-align: center;
-  }
-
-  .menu-item .menu-pb {
-    font-size: 0.62rem;
-    line-height: 1;
   }
 
   .menu-item span:last-child {
